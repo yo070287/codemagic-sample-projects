@@ -1,6 +1,6 @@
 workflows:
   react-native-ios:
-    name: React Native iOS
+    name: Integration Sentry React Native iOS
     max_build_duration: 120
     instance_type: mac_mini_m1
     integrations:

@@ -1,6 +1,6 @@
 workflows:
   android-fastlane:
-    name: Android Fastlane
+    name: Integration Fastlane Android
     max_build_duration: 60
     instance_type: linux_x2
     environment:
@@ -14,13 +14,14 @@ workflows:
         script: |
           #!/usr/bin/env zsh 
           echo "sdk.dir=$ANDROID_SDK_ROOT" > "$CM_BUILD_DIR/local.properties"
-      - bundle install
+      - name: Install dependencies
+        script: |
+          bundle install
       - name: Build, increment the build number and publish to the store
         script: |
           #!/usr/bin/env zsh 
-          chmod +x gradlew # because the gradlew was denied
+          chmod +x gradlew
           bundle exec fastlane release
-
     artifacts:
       - app/build/outputs/**/**/*.aab
       - app/build/outputs/**/**/*.apk

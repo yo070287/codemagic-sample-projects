@@ -51,9 +51,9 @@
 ### Code quality
 
 * [Codecov](https://github.com/codemagic-ci-cd/codemagic-sample-projects/tree/main/integrations/codecov_integration_demo_project)
+* [Emerge Tools](https://github.com/codemagic-ci-cd/codemagic-sample-projects/tree/main/integrations/emerge-tools-integration-demo-project)
 * [SonarQube / SonarCloud (iOS)](https://github.com/codemagic-ci-cd/codemagic-sample-projects/tree/main/integrations/sonarqube_integration_demo_project/Sonar)
 * [SonarQube / SonarCloud (Android)](https://github.com/codemagic-ci-cd/codemagic-sample-projects/tree/main/integrations/sonarqube_integration_demo_project/Android)
-* [Emerge Tools](https://github.com/codemagic-ci-cd/codemagic-sample-projects/tree/main/integrations/emerge-tools-integration-demo-project)
 
 
 ### Messaging
@@ -85,6 +85,8 @@
 ### Other
 
 * [Capgo](https://github.com/codemagic-ci-cd/codemagic-sample-projects/tree/main/integrations/capgo_integration_demo_project)
+* [Fastlane (Android)](https://github.com/codemagic-ci-cd/codemagic-sample-projects/tree/main/integrations/fastlane-android-integration-demo-project)
+* [Fastlane (iOS)](https://github.com/codemagic-ci-cd/codemagic-sample-projects/tree/main/integrations/fastlane-integration-demo-project)
 
 
 ## Older sample projects
