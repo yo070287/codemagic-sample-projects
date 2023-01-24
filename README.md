@@ -68,6 +68,7 @@
 
 * [emulator.wtf](https://github.com/codemagic-ci-cd/codemagic-sample-projects/tree/main/integrations/emulatorwtf-android-demo-project)
 * [Katalon](https://github.com/codemagic-ci-cd/codemagic-sample-projects/tree/main/integrations/katalon_integration_demo_project)
+* [Perfecto](https://github.com/codemagic-ci-cd/codemagic-sample-projects/tree/main/integrations/perfecto_flutter_sample_project/PerfectoRunAndroid)
 
 ### Real-device testing
 
@@ -77,6 +78,7 @@
 * [Kobiton](https://github.com/codemagic-ci-cd/codemagic-sample-projects/tree/main/integrations/kobiton_integration_demo_project)
 * [LambdaTest](https://github.com/codemagic-ci-cd/codemagic-sample-projects/tree/main/integrations/lambdatest_integration_demo_project)
 * [pCloudy](https://github.com/codemagic-ci-cd/codemagic-sample-projects/tree/main/integrations/pcloudy_integration_demo_project)
+* [Perfecto](https://github.com/codemagic-ci-cd/codemagic-sample-projects/tree/main/integrations/perfecto_sample_project)
 * [Sofy](https://github.com/codemagic-ci-cd/codemagic-sample-projects/tree/main/integrations/sofy_integration_demo_project)
 
 

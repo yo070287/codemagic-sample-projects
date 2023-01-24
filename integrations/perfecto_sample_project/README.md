@@ -1,41 +1,53 @@
 # Integrating Codemagic with Perfecto
 
 
-## Getting Started
+[**Perfecto**](https://www.perfecto.io/) is a cloud-based test automation platform for web and mobile that allows application developers and QA engineers to create and execute tests across devices and browsers at scale. Perfecto offers many ways to integrate with different stages of the software development and testing lifecycle. It is possible to integrate with Perfecto directly from your **codemagic.yaml**
 
-**Perfecto** is a web-based Software as a Service (SaaS) platform that allows mobile application developers and QA Engineers to work with services such as advanced automation, monitoring and testing services. It is possible to integrate with Perfecto directly from your **codemagic.yaml**
+## Configuring Perfecto access
 
-Signing up with [Perfect](https://www.perfecto.io/) is required in order to get credentials that are needed during an upload process. 
+Signing up with [Perfecto](https://www.perfecto.io/) is required in order to get credentials that are needed during an upload process. 
 
-Usin the following cURL script in a pre-build script(a script that is run after executing build commands in yaml), **.apk**, **.aab** and **.ipa** binaries can be uploaded to the Perfecto platform:
+1. Get the Perfecto access token from the Perfecto UI.
+1. Open your Codemagic app settings, and go to the **Environment variables** tab.
+2. Enter the desired **_Variable name_**, e.g. `PERFECTO_TOKEN`.
+3. Copy and paste the Perfecto token string as **_Variable value_**.
+4. Enter the variable group name, e.g. **_perfecto_credentials_**. Click the button to create the group.
+5. Make sure the **Secure** option is selected.
+6. Click the **Add** button to add the variable.
+
+7. Add the variable group to your `codemagic.yaml` file
+```yaml
+  environment:
+    groups:
+      - perfecto_credentials
+```
+
+## Uploading to Perfecto
+
+Using the following cURL script in a post-build script, **Release APK** and **Release IPA** binaries can be uploaded to the Perfecto platform:
 
 ```
-curl "https://web.app.perfectomobile.com/repository/api/v1/artifacts" -H "Perfecto-Authorization: $PERFECTO_TOKEN" -H "Content-Type: multipart/form-data" -F "requestPart={\"artifactLocator\":\"PRIVATE:app.aab\",\"artifactType\":\"ANDROID\",\"override\":true}" -F "inputStream=@/path/to/app.aab"
+curl "https://web.app.perfectomobile.com/repository/api/v1/artifacts" -H   scripts:
+    - name: Upload to Perfecto
+      script: | 
+        curl "https://web.app.perfectomobile.com/repository/api/v1/artifacts" \
+        -H "Perfecto-Authorization: $PERFECTO_TOKEN" \
+        -H "Content-Type: multipart/form-data" \
+        -F "requestPart={\"artifactLocator\":\"PRIVATE:app.aab\",\"artifactType\":\"ANDROID\",\"override\":true}" \
+        -F "inputStream=@/path/to/your_binary"
 ```
-
-**PERFECTO_TOKEN** can found in the Perfecto UI with your account. Environment variables can be added in the Codemagic web app using the ‘Environment variables’ tab. You can then and import your variable groups into your codemagic.yaml. For example, if you named your variable group ‘browserstack_credentials’, you would import it as follows:
-
-```
-workflows:
-  workflow-name:
-    environment:
-      groups:
-        - perfecto_credentials
-```
-
-For further information about using variable groups please click [here](.../variables/environment-variable-groups/).
 
 
 ## Test Automation
 
 In order to automate tests, desired capabitlies can be set inside your custom made test scripts in your project. For example, if your application requires device sensors such as camera or fingerprint reader, then **sensorInstrument** needs to be set:
 
-```
+```dart
 capabilities.setCapability("sensorInstrument", true);
 ```
 
 With Appium tests **autoInstrument** capability automatically instrument the application and it needs to be set to true:
 
-```
+```dart
 capabilities.setCapability("autoInstrument", true);
 ```
